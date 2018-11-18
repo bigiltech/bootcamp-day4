@@ -45,6 +45,11 @@ app.get("/students/:id", (req, res) => {
 app.post("/students", (req, res) => {
     const body = req.body;
     console.log('body', body);
+    students.push({
+        id: students.length,
+        name: body.name
+    })
+    res.send();
 });
 
 const PORT = 8080;
