@@ -17,6 +17,11 @@ const students = [
         name: "Oda Highfill",
         phoneNumber: "90123"
     },
+    {
+        id: 4,
+        name: "Hussein",
+        phoneNumber: "1234"
+    },
 ];
 
 app.get("/", (req, res) => {
