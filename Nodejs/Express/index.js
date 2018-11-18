@@ -1,4 +1,5 @@
-var http = require('http');
+const express = require("express");
+const app = express();
 
 const students = [
     {
@@ -16,9 +17,16 @@ const students = [
         name: "Oda Highfill",
         phoneNumber: "90123"
     },
-]
+];
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify(students));
-}).listen(8080);
+app.get("/", (req, res) => {
+    res.send("<h1>Hello World!</>");
+});
+
+app.get("/students", (req, res) => {
+    res.json(students);
+});
+
+const PORT = 8080;
+
+app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
