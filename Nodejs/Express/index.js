@@ -32,6 +32,14 @@ app.get("/students", (req, res) => {
     res.json(students);
 });
 
+app.get("/students/:id", (req, res) => {
+    const id = req.params.id;
+    console.log('id', id);
+    const student = students.find(s => s.id == id);
+    console.log('student', student);
+    res.json(student);
+});
+
 const PORT = 8080;
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
