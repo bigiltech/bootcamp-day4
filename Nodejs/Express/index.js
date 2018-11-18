@@ -1,5 +1,7 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
+app.use(bodyParser.json());
 
 const students = [
     {
@@ -38,6 +40,11 @@ app.get("/students/:id", (req, res) => {
     const student = students.find(s => s.id == id);
     console.log('student', student);
     res.json(student);
+});
+
+app.post("/students", (req, res) => {
+    const body = req.body;
+    console.log('body', body);
 });
 
 const PORT = 8080;
