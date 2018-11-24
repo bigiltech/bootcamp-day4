@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Students</title>
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <h1>Welcome</h1>
+        <h3>Students</h3>
+        <table border="1">
+            <thead>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Telephone</th>
+            </thead>
+            <tbody id="students">
+
+            </tbody>
+        </table>
+
+        <script>
+            fetch('/api/students')
+                .then((response) => response.json())
+                .then((data) => {
+                    data.forEach(student => {
+                        $('#students').append(`<tr><td>${student.firstName}</td><td>${student.lastName}</td><td>${student.phoneNumber}</td></tr>`);
+                    });
+                })
+        </script>
+
+    </body>
+</html>
